@@ -1,0 +1,71 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+h1{
+    padding-top: 10px;
+}
+
+.header{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 48px;
+}
+
+.header a img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 16px;
+}
+
+#pokedex{
+    margin: 120px 64px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pokeCard{
+    display: flex;
+    flex-direction: column;
+    margin: 16px 8px;
+}
+
+.pokeImg{
+    width: 200px;
+    height: 200px;
+    padding: 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+#pokeCardInfo{
+    padding: 16px;
+    border-radius: 10%;
+    margin-top: -8px;
+    background-color: whitesmoke;
+    color: black;
+}
