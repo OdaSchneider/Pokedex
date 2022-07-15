@@ -37,7 +37,26 @@ h1{
     width: 40px;
     height: 40px;
     object-fit: contain;
-    margin-right: 16px;
+    margin-right: 8px;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+}
+
+.search input{
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    padding: 8px;
+    width: 200px;
+}
+
+.searchButton{
+    margin-right: 48px;
+    margin-left: 8px;
+    cursor: pointer;
 }
 
 #pokedex{
@@ -51,21 +70,93 @@ h1{
     display: flex;
     flex-direction: column;
     margin: 16px 8px;
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+    border-radius: 5%;
+}
+
+.pokeCard:hover{
+    animation: bounce 1s;
 }
 
 .pokeImg{
-    width: 200px;
-    height: 200px;
-    padding: 24px;
-    background-color: rgba(255, 255, 255, 0.5);
+    width: 220px;
+    height: 220px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.7);
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
 }
 
 #pokeCardInfo{
     padding: 16px;
-    border-radius: 10%;
-    margin-top: -8px;
-    background-color: whitesmoke;
-    color: black;
+    border-radius: 6%;
+    margin-top: -12px;
+    background-color: black;
+    border: 1px solid white;
+}
+
+.pokeCardTypes span{
+    border: 1px solid white;
+    padding: 4px;
+}
+
+.background_fire{
+    background-color: rgba(253, 125, 36);
+}
+
+.border_fire{
+    box-shadow: 8px 4px 15px 3px rgb(253, 125, 36);
+}
+
+.background_grass{
+    background-color: rgba(155, 204, 80);
+}
+
+.border_grass{
+    box-shadow: 8px 4px 15px 3px rgba(155, 204, 80);
+}
+
+.background_water{
+    background-color: rgba(69, 146, 196);
+}
+
+.border_water{
+    box-shadow: 8px 4px 15px 3px rgba(69, 146, 196);
+}
+
+.background_poison{
+    background-color: rgba(185, 127, 201);
+}
+
+.border_poison{
+    box-shadow: 8px 4px 15px 3px rgba(185, 127, 201);
+}
+
+.background_flying{
+    background-color: rgba(154, 191, 206);
+}
+
+.border_flying{
+    box-shadow: 8px 4px 15px 3px rgba(154, 191, 206);
+}
+
+.background_bug{
+    background-color: rgba(114, 159, 63);
+}
+
+.border_bug{
+    box-shadow: 8px 4px 15px 3px rgba(114, 159, 63);
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  
+    40% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
 }
