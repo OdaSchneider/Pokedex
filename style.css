@@ -135,6 +135,7 @@ h1{
 
 .background_flying{
     background-color: rgba(154, 191, 206);
+    color: black;
 }
 
 .border_flying{
@@ -142,11 +143,46 @@ h1{
 }
 
 .background_bug{
-    background-color: rgba(114, 159, 63);
+    background-color: rgb(51, 82, 14);
 }
 
 .border_bug{
-    box-shadow: 8px 4px 15px 3px rgba(114, 159, 63);
+    box-shadow: 8px 4px 15px 3px rgb(51, 82, 14);
+}
+
+.background_normal{
+    background-color: rgb(165, 175, 175);
+    color: black;
+}
+
+.border_normal{
+    box-shadow: 8px 4px 15px 3px rgba(165, 175, 175);
+}
+
+.background_electric{
+    background-color: rgb(238, 213, 53);
+    color: black;
+}
+
+.border_electric{
+    box-shadow: 8px 4px 15px 3px rgba(238, 213, 53);
+}
+
+.background_ground{
+    background-color: rgb(171, 152, 66);
+}
+
+.border_ground{
+    box-shadow: 8px 4px 15px 3px rgba(171, 152, 66);
+}
+
+.background_fairy{
+    background-color: rgb(253, 185, 233);
+    color: black;
+}
+
+.border_fairy{
+    box-shadow: 8px 4px 15px 3px rgba(253, 185, 233);
 }
 
 @keyframes bounce {
