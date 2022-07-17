@@ -1,7 +1,9 @@
 let currentPokemon;
+let loadingrangeStart = 1;
+let loadingrangeEnd = 21;
 
 async function loadPokemon(){
-    for (let i = 1; i < 50; i++) {
+    for (let i = loadingrangeStart; i < loadingrangeEnd; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
@@ -16,7 +18,7 @@ function showPokemon(i){
     pokedex.innerHTML += `
         <div id="pokeCard${i}" class="pokeCard">
 
-            <img class="pokeImg" src= ${currentPokemon['sprites']['other']['official-artwork']['front_default']}>
+            <img class="pokeImg" loading="lazy" src= ${currentPokemon['sprites']['other']['official-artwork']['front_default']}>
             
             <div id="pokeCardInfo">
                 <span>#${currentPokemon['id']}</span>
@@ -41,6 +43,13 @@ function getType(i){
 }
 
 
+function loadMore(){
+    loadingrangeStart = loadingrangeEnd;
+    loadingrangeEnd = loadingrangeEnd + 10;
+    loadPokemon();
+}
+
+
 function setColorType(i, j, type){
     document.getElementById(`type${i}${j}`).classList.add(`background_${type}`);
 }
@@ -48,4 +57,17 @@ function setColorType(i, j, type){
 function setColorBox(i){
     let color = currentPokemon['types'][0]['type']['name'];
     document.getElementById(`pokeCard${i}`).classList.add(`border_${color}`);
+}
+
+
+function showSearchbar(){
+    document.getElementById('input').style.transform = 'scaleX(1)';
+    document.getElementById('searchButton').src = "./img/icon/x-mark.ico"
+    document.getElementById('searchButton').setAttribute('onclick', `javascript: hideSearchbar()`);
+}
+
+function hideSearchbar(){
+    document.getElementById('input').style.transform = 'scaleX(0.0)';
+    document.getElementById('searchButton').src = "./img/icon/search.ico"
+    document.getElementById('searchButton').setAttribute('onclick', `javascript: showSearchbar()`);
 }

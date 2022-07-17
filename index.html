@@ -9,6 +9,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='fonts.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='colorTypes.css'>
     <script src='script.js'></script>
 </head>
 
@@ -19,12 +20,16 @@
             <h1>POKEDEX</h1>
         </a>
         <div class="search">
-            <input id="input" placeholder="Pokemon suchen">
-            <img class="searchButton" src="./img/icon/search.ico">
+            <input id="input" class="scaleX" placeholder="Pokemon suchen">
+            <img onclick="showSearchbar()" id="searchButton" src="./img/icon/search.ico">
         </div>
     </div>
 
     <div id="pokedex"></div>
+
+    <div class="showMoreButton">
+        <button onclick="loadMore()">MORE</button>
+    </div>
     
 
 </body>
