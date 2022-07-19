@@ -11,26 +11,34 @@
     <link rel='stylesheet' type='text/css' media='screen' href='fonts.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='colorTypes.css'>
     <script src='script.js'></script>
+    <script src='template.js'></script>
 </head>
 
 <body onload="loadPokemon()">
     <div class="header">
-        <a href="#">
+        <a href="index.html">
             <img src="./img/pokeball.png">
             <h1>POKEDEX</h1>
         </a>
+
         <div class="search">
             <input id="input" class="scaleX" placeholder="Pokemon suchen">
             <img onclick="showSearchbar()" id="searchButton" src="./img/icon/search.ico">
+            <img onclick="displayFilter()" id="filterButton" src="./img/icon/filter.png">
         </div>
     </div>
 
     <div id="pokedex"></div>
 
-    <div class="showMoreButton">
+    <div id="showMoreButton" class="showMoreButton">
         <button onclick="loadMore()">MORE</button>
     </div>
-    
+
+    <div id="pokeInfo_bg" class="pokeInfo_bg d-none">
+        <img onclick="closePokeInfo()" class="infoCloseButton" src="./img/icon/x-mark.ico">
+        <div id="pokeInfo" class="pokeInfo d-none"></div>
+        <div id="filterGroup" class="filterGroup d-none"></div>
+    </div>
 
 </body>
 
