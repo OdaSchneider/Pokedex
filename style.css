@@ -102,6 +102,12 @@ p{
     font-size: 16px;
     margin: 25px;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 15px;
+}
+
+.filterGroup button:hover{
+    animation: zoom-in-zoom-out 500ms ease-in-out;
 }
 
 #pokedex{
@@ -370,7 +376,7 @@ p{
       transform: scale(1, 1);
     }
     50% {
-      transform: scale(1.5, 1.5);
+      transform: scale(1.3, 1.3);
     }
     100% {
       transform: scale(1, 1);

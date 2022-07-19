@@ -77,7 +77,7 @@ function showStats(i, j, info){
 function filterOption(i, type){
     return `
     <div>
-        <button onclick="filterGroups(${i})" class="background_${type}">${type}</button>
+        <button onclick="initFilter(${i})" class="background_${type}">${type}</button>
     </div>`
 }
 

@@ -144,6 +144,7 @@ function closePokeInfo(){
     document.getElementById('pokeInfo_bg').classList.add('d-none');
     document.getElementById('filterGroup').classList.add('d-none');
     document.getElementById('pokeInfo').classList.add('d-none');
+    document.getElementById('showMoreButton').classList.remove('d-none');
 }
 
 
@@ -160,17 +161,22 @@ function closeQuestionMarkInfo(){
 
 
 function displayFilter(){
-    pokedex.innerHTML='';
     document.body.style.overflow = 'hidden';
     document.getElementById('showMoreButton').classList.add('d-none');
     document.getElementById('pokeInfo_bg').classList.remove('d-none');
     document.getElementById('filterGroup').classList.remove('d-none');
     document.getElementById('filterGroup').innerHTML='';
-    
+
     for (let i = 0; i < allTypes.length; i++) {
         let type = allTypes[i];
         document.getElementById('filterGroup').innerHTML += filterOption(i, type);
     }
+}
+
+function initFilter(i){
+    document.getElementById('pokedex').innerHTML='';
+    closePokeInfo();
+    filterGroups(i);
 }
 
 async function filterGroups(i){
@@ -196,7 +202,6 @@ async function loadPokeFilter(pokeName){
     let i = currentPokemon['id'];
 
     if(i <=1101){
-        console.log(currentPokemon);
         showPokeFilter(i);
     }
 }
@@ -207,7 +212,6 @@ function showPokeFilter(i){
         pokedex.innerHTML += showPokecard(i);
         getType(i);
         setColorBox(i);
-        closePokeInfo();
 }
 
 
