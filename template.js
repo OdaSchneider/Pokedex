@@ -1,6 +1,6 @@
 function showPokecard(i){
     return `
-    <div onclick="openPokeInfoBg(${i})" id="pokeCard${i}" class="pokeCard">
+    <div onclick="openPokeInfoBg(${i})" id="pokeCard${i}" class="pokeCard filter">
 
         <img class="pokeImg" alt="Image not found" loading="lazy" src= ${currentPokemon['sprites']['other']['official-artwork']['front_default']}>
         
@@ -46,7 +46,6 @@ function showPokeInfo(i){
 
                 <div id="questionMarkInfo" class="questionMarkInfo d-none">	
                     <p>Base experience gained for defeating this Pokémon</p>
-                    <img onclick="closeQuestionMarkInfo()" src="./img/icon/x-mark.ico">
                 </div>
 
                 <div class="infoDetails">
@@ -74,7 +73,7 @@ function showStats(i, j, info){
 }
 
 
-function filterOption(i, type){
+function filterButton(i, type){
     return `
     <div>
         <button onclick="initFilter(${i})" class="background_${type}">${type}</button>

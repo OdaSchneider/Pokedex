@@ -5,7 +5,9 @@ let allTypes = ['fire', 'grass', 'water', 'poison', 'flying', 'bug', 'normal', '
 let allPokemon = [];
 let filter = [];
 
-async function loadPokemon(){
+
+async function loadPokemon() {
+    document.getElementById('pokedex').innerHTML='';
     for (let i = loadingrangeStart; i < loadingrangeEnd; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
@@ -16,7 +18,8 @@ async function loadPokemon(){
 }
 
 
-async function loadAll(){
+async function loadAll() {
+    allPokemon = [];
     for (let i = 1; i < 901; i++) {
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         let pokemon = await response.json();
@@ -25,7 +28,7 @@ async function loadAll(){
 }
 
 
-function showPokemon(i){
+function showPokemon(i) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML += showPokecard(i);
     getType(i);
@@ -33,35 +36,35 @@ function showPokemon(i){
 }
 
 
-function loadMore(){
+function loadMore() {
     loadingrangeStart = loadingrangeEnd;
     loadingrangeEnd = loadingrangeEnd + 10;
     loadPokemon();
 }
 
 
-function getType(i){
+function getType(i) {
     let types = currentPokemon['types'];
     for (let j = 0; j < types.length; j++) {
         let type = types[j]['type']['name'];
-        document.getElementById(`pokeCardTypes${i}`).innerHTML+=` <span id="type${i}${j}">${type}</span> `
+        document.getElementById(`pokeCardTypes${i}`).innerHTML += ` <span id="type${i}${j}">${type}</span> `
         setColorType(i, j, type);
     }
 }
 
 
-function setColorType(i, j, type){
+function setColorType(i, j, type) {
     document.getElementById(`type${i}${j}`).classList.add(`background_${type}`);
 }
 
 
-function setColorBox(i){
+function setColorBox(i) {
     let color = currentPokemon['types'][0]['type']['name'];
     document.getElementById(`pokeCard${i}`).classList.add(`border_${color}`);
 }
 
 
-function openPokeInfoBg(i){
+function openPokeInfoBg(i) {
     document.body.style.overflow = 'hidden';
     document.getElementById('pokeInfo_bg').classList.remove('d-none');
     document.getElementById('pokeInfo').classList.remove('d-none');
@@ -69,11 +72,11 @@ function openPokeInfoBg(i){
 }
 
 
-async function loadPokeInfo(i){
+async function loadPokeInfo(i) {
     let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     let response = await fetch(url);
     currentPokemon = await response.json();
-    document.getElementById('pokeInfo').innerHTML= showPokeInfo(i);
+    document.getElementById('pokeInfo').innerHTML = showPokeInfo(i);
     loadInfoDetails(i);
     setPokeInfoType(i);
     setColorPokeInfoBg(i);
@@ -82,7 +85,7 @@ async function loadPokeInfo(i){
 
 
 
-function loadInfoDetails(i){
+function loadInfoDetails(i) {
     let infoStats = document.getElementById(`stats${i}`);
     infoStats.innerHTML = '';
     let stats = currentPokemon['stats'];
@@ -94,52 +97,52 @@ function loadInfoDetails(i){
 }
 
 
-function loadProcessbarValue(i, j, info){
-    document.getElementById(`processbarValue${i}${j}`).style.width =`${info['base_stat']}px`;
+function loadProcessbarValue(i, j, info) {
+    document.getElementById(`processbarValue${i}${j}`).style.width = `${info['base_stat']}px`;
 }
 
 
-function setPokeInfoType(i){
+function setPokeInfoType(i) {
     let types = currentPokemon['types'];
     for (let j = 0; j < types.length; j++) {
         let type = types[j]['type']['name'];
-        document.getElementById(`pokeInfoTypes${i}`).innerHTML+=` <span id="pokeInfoType${i}${j}">${type}</span> `
+        document.getElementById(`pokeInfoTypes${i}`).innerHTML += ` <span id="pokeInfoType${i}${j}">${type}</span> `
         setColorInfoType(i, j, type);
     }
 }
 
 
-function setColorInfoType(i, j, type){
+function setColorInfoType(i, j, type) {
     document.getElementById(`pokeInfoType${i}${j}`).classList.add(`background_${type}`);
 }
 
 
-function setColorPokeInfoBg(i){
+function setColorPokeInfoBg(i) {
     let color = currentPokemon['types'][0]['type']['name'];
     document.getElementById(`pokeInfoTop${i}`).classList.add(`backgroundGradient_${color}`);
 }
 
 
-function checkSlideNumber(i){
-    if(i == 1){
+function checkSlideNumber(i) {
+    if (i == 1) {
         document.getElementById(`slideDown`).style.opacity = 0;
     }
 }
 
 
-function slideDown(i){
+function slideDown(i) {
     i--;
     loadPokeInfo(i);
 }
 
 
-function slideUp(i){
+function slideUp(i) {
     i++;
     loadPokeInfo(i);
 }
 
 
-function closePokeInfo(){
+function closePokeInfo() {
     document.body.style.overflow = 'auto';
     document.getElementById('pokeInfo_bg').classList.add('d-none');
     document.getElementById('filterGroup').classList.add('d-none');
@@ -148,104 +151,136 @@ function closePokeInfo(){
 }
 
 
-function openQuestionMarkInfo(){
+function openQuestionMarkInfo() {
     document.getElementById('questionMarkInfo').classList.remove('d-none');
     document.getElementById('questionmark').setAttribute('onclick', `javascript: closeQuestionMarkInfo()`);
+    setTimeout(closeQuestionMarkInfo, 5000);
 }
 
 
-function closeQuestionMarkInfo(){
+function closeQuestionMarkInfo() {
     document.getElementById('questionMarkInfo').classList.add('d-none');
     document.getElementById('questionmark').setAttribute('onclick', `javascript: openQuestionMarkInfo()`);
 }
 
 
-function displayFilter(){
+function displayFilter() {
     document.body.style.overflow = 'hidden';
-    document.getElementById('showMoreButton').classList.add('d-none');
     document.getElementById('pokeInfo_bg').classList.remove('d-none');
     document.getElementById('filterGroup').classList.remove('d-none');
-    document.getElementById('filterGroup').innerHTML='';
+    document.getElementById('filterGroup').innerHTML = '';
 
     for (let i = 0; i < allTypes.length; i++) {
         let type = allTypes[i];
-        document.getElementById('filterGroup').innerHTML += filterOption(i, type);
+        document.getElementById('filterGroup').innerHTML += filterButton(i, type);
     }
 }
 
-function initFilter(i){
-    document.getElementById('pokedex').innerHTML='';
-    closePokeInfo();
+function initFilter(i) {
+    filter = [];
+    document.getElementById('showMoreButton').classList.add('d-none');
+    document.getElementById('pokedex').innerHTML = '';
+    closeFilter();
     filterGroups(i);
 }
 
-async function filterGroups(i){
+async function filterGroups(i) {
     let selectedGroup = allTypes[i];
     let response = await fetch(`https://pokeapi.co/api/v2/type/${selectedGroup}`);
-    filter = await response.json();
+    groupList = await response.json();
     getPokeNames();
 }
 
 
-function getPokeNames(){
-    let pokeList = filter['pokemon'];
-    for (let k = 0; k < pokeList.length; k++) {
-        let pokeName = pokeList[k]['pokemon']['name'];
+function getPokeNames() {
+    let pokeNameList = groupList['pokemon'];
+    for (let k = 0; k < pokeNameList.length; k++) {
+        let pokeName = pokeNameList[k]['pokemon']['name'];
         loadPokeFilter(pokeName);
     }
 }
 
 
-async function loadPokeFilter(pokeName){
-    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`);
-    currentPokemon = await response.json();
-    let i = currentPokemon['id'];
+function loadPokeFilter(pokeName) {
+    let pokedex = document.getElementById('pokedex');
 
-    if(i <=1101){
-        showPokeFilter(i);
+    for (i = 0; i < allPokemon.length; i++) {
+        let filterName = allPokemon[i]['name'];
+        if (filterName.toLowerCase().includes(pokeName)) {
+            currentPokemon = allPokemon[i];
+            pokedex.innerHTML += showPokecard(i);
+            getType(i);
+            setColorBox(i);
+        }
     }
 }
 
 
-function showPokeFilter(i){
-        let pokedex = document.getElementById('pokedex');
-        pokedex.innerHTML += showPokecard(i);
-        getType(i);
-        setColorBox(i);
+// function showPokeFilter(i) {
+//     let pokedex = document.getElementById('pokedex');
+//     pokedex.innerHTML += showPokecard(i);
+//     getType(i);
+//     setColorBox(i);
+// }
+
+
+function closeFilter() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('pokeInfo_bg').classList.add('d-none');
+    document.getElementById('filterGroup').classList.add('d-none');
 }
 
 
-function showSearchbar(){
+function showSearchbar() {
     document.getElementById('input').style.transform = 'scaleX(1)';
     document.getElementById('searchButton').src = "./img/icon/x-mark.ico"
     document.getElementById('searchButton').setAttribute('onclick', `javascript: hideSearchbar()`);
 }
 
 
-function hideSearchbar(){
+function hideSearchbar() {
+    document.getElementById('input').value='';
     document.getElementById('input').style.transform = 'scaleX(0.0)';
     document.getElementById('searchButton').src = "./img/icon/search.ico"
     document.getElementById('searchButton').setAttribute('onclick', `javascript: showSearchbar()`);
+    search();
 }
 
 
-// async function loadSearch(){
-//     for (let i = 1; i < 1154; i++) {
-//         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-//         let response = await fetch(url);
-//         pokemon = await response.json();
-//         allNames.push(pokemon['name']);
-//     }
-// }
+function search() {
+    document.getElementById('pokedex').innerHTML = '';
+    document.getElementById('showMoreButton').classList.add('d-none');
+    let input = document.getElementById('input');
+    let search = input.value.toLocaleLowerCase();
+
+    if (search) {
+        for (i = 0; i < allPokemon.length; i++) {
+            let filterName = allPokemon[i]['name'];
+            if (filterName.toLowerCase().includes(search)) {
+                currentPokemon = allPokemon[i];
+                pokedex.innerHTML += showPokecard(i);
+                getType(i);
+                setColorBox(i);
+            }
+        }
+    }else{
+        loadPokemon();
+    }
+}
+
+
+
 
 // function search(){
-//     let input = document.getElementById('input').value;
-//     let filter = input.value.toLocaleLowerCase();
-//     for (i = 0; i < allNames.length; i++) {
-//         if (allNames[i].toLowerCase().includes(filter)) {
-//             search[i].style.display = '';
+//     let input = document.getElementById('input');
+//     let search = input.value.toLocaleLowerCase();
+//     let filter = document.getElementsByClassName('filter');
+
+//     for (i = 0; i < filter.length; i++) {
+//         if (filter[i].innerText.toLowerCase().includes(search)) {
+//             filter[i].style.display = '';
 //         } else {
-//             search[i].style.display = "none";
+//             filter[i].style.display = "none";
 //         }
 //     }
 // }

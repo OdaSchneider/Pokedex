@@ -8,6 +8,7 @@ body{
     font-family: 'Josefin Sans', sans-serif;
     background-color: black;
     color: white;
+    transition: all 255ms ease-in-out;
 }
 
 h1{
@@ -107,7 +108,7 @@ p{
 }
 
 .filterGroup button:hover{
-    animation: zoom-in-zoom-out 500ms ease-in-out;
+    animation: zoom-in-zoom-out 0.5 ease-in-out;
 }
 
 #pokedex{
@@ -145,6 +146,7 @@ p{
     margin-top: -12px;
     background-color: rgb(92, 92, 92);
     border: 1px solid white;
+    word-wrap: break-word;
 }
 
 .pokeCardTypes span{
