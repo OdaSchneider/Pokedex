@@ -15,7 +15,7 @@ function showPokecard(i){
 
 function showPokeInfo(i){
     return `
-        <div onclick="slideDown(${i})" id="slideDown" class="slideButton"><img src="./img/icon/arrow-back.ico"></div>
+        <button onclick="slideDown(${i})" id="slideDown" class="slideButton"><img src="./img/icon/arrow-back.ico"></button>
 
         <div class="pokeInfoCard">
             <div id="pokeInfoTop${i}" class="pokeInfoTop">
@@ -55,7 +55,7 @@ function showPokeInfo(i){
             </div>
         </div>
 
-        <div onclick="slideUp(${i})" class="slideButton"><img src="./img/icon/arrow-forward.ico"></div>`
+        <button onclick="slideUp(${i})" class="slideButton"><img src="./img/icon/arrow-forward.ico"></button>`
 }
 
 

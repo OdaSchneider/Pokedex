@@ -7,7 +7,6 @@ let filter = [];
 
 
 async function loadPokemon() {
-    document.getElementById('pokedex').innerHTML='';
     for (let i = loadingrangeStart; i < loadingrangeEnd; i++) {
         let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         let response = await fetch(url);
@@ -125,7 +124,10 @@ function setColorPokeInfoBg(i) {
 
 function checkSlideNumber(i) {
     if (i == 1) {
-        document.getElementById(`slideDown`).style.opacity = 0;
+        document.getElementById(`slideDown`).disabled = true;
+        document.getElementById(`slideDown`).style.opacity = 0.3;
+    }else{
+        document.getElementById(`slideDown`).disabled = false;
     }
 }
 
@@ -178,41 +180,35 @@ function displayFilter() {
 function initFilter(i) {
     filter = [];
     document.getElementById('showMoreButton').classList.add('d-none');
-    document.getElementById('pokedex').innerHTML = '';
     closeFilter();
     filterGroups(i);
 }
 
-async function filterGroups(i) {
+function filterGroups(i) {
     let selectedGroup = allTypes[i];
-    let response = await fetch(`https://pokeapi.co/api/v2/type/${selectedGroup}`);
-    groupList = await response.json();
-    getPokeNames();
-}
 
+    for (let j = 0; j < allPokemon.length; j++) {
+        currentPokemon = allPokemon[j];
+        let types = currentPokemon['types'];
 
-function getPokeNames() {
-    let pokeNameList = groupList['pokemon'];
-    
-    for (let k = 0; k < pokeNameList.length; k++) {
-        let pokeName = pokeNameList[k]['pokemon']['name'];
-
-        loadPokeFilter(pokeName);
-    }
-}
-
-
-function loadPokeFilter(pokeName) {
-    let pokedex = document.getElementById('pokedex');
-
-    for (i = 0; i < allPokemon.length; i++) {
-        let filterName = allPokemon[i]['name'];
-        if (filterName.toLowerCase().includes(pokeName)) {
-            currentPokemon = allPokemon[i];
-            pokedex.innerHTML += showPokecard(i+1);
-            getType(i+1);
-            setColorBox(i+1);
+        for (let k = 0; k < types.length; k++) {
+            if (selectedGroup == types[k]['type']['name']) {
+                filter.push(currentPokemon);
+            }
         }
+    }
+    showFilter();
+}
+
+function showFilter() {
+    let pokedex = document.getElementById('pokedex');
+    pokedex.innerHTML = '';
+    for (let j = 0; j < filter.length; j++) {
+        currentPokemon = filter[j];
+        let i = currentPokemon['id'];
+        pokedex.innerHTML += showPokecard(i);
+        getType(i);
+        setColorBox(i);
     }
 }
 
@@ -232,7 +228,7 @@ function showSearchbar() {
 
 
 function hideSearchbar() {
-    document.getElementById('input').value='';
+    document.getElementById('input').value = '';
     document.getElementById('input').style.transform = 'scaleX(0.0)';
     document.getElementById('searchButton').src = "./img/icon/search.ico"
     document.getElementById('searchButton').setAttribute('onclick', `javascript: showSearchbar()`);
@@ -247,17 +243,18 @@ function search() {
     let search = input.value.toLocaleLowerCase();
 
     if (search) {
-        for (i = 0; i < allPokemon.length; i++) {
-            let filterName = allPokemon[i]['name'];
+        currentPokemon = [];
+        for (j = 0; j < allPokemon.length; j++) {
+            let filterName = allPokemon[j]['name'];
             if (filterName.toLowerCase().includes(search)) {
-                currentPokemon = allPokemon[i];
-                pokedex.innerHTML += showPokecard(i+1);
-                getType(i+1);
-                setColorBox(i+1);
+                currentPokemon = allPokemon[j];
+                let i = currentPokemon['id'];
+                pokedex.innerHTML += showPokecard(i);
+                getType(i);
+                setColorBox(i);
             }
         }
-    }else{
+    } else {
         loadPokemon();
     }
 }
-
