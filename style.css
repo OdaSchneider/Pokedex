@@ -71,21 +71,28 @@ p{
 }
 
 #searchButton{
-    margin-right: 32px;
+    margin-right: 64px;
     margin-left: 8px;
     cursor: pointer;
 }
 
 #filterButton{
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
     margin-right: 48px;
     cursor: pointer;
-    border: 1px solid white;
-    border-radius: 5px;
 }
 
-.filterGroup{
+.groupFilter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 48%;
+}
+
+#groups{
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 25px;
     display: flex;
@@ -96,10 +103,11 @@ p{
     margin-right: 100px;
 }
 
-.filterGroup button{
+#groups button{
     width: 100px;
     height: 50px;
     color: rgb(248, 248, 248);
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     margin: 25px;
     cursor: pointer;
@@ -107,7 +115,7 @@ p{
     border-radius: 15px;
 }
 
-.filterGroup button:hover{
+#groups button:hover{
     animation: zoom-in-zoom-out 0.5 ease-in-out;
 }
 
@@ -190,13 +198,12 @@ p{
 }
 
 .infoCloseButton{
+    width: 42px;
+    height: 42px;
     position: fixed;
     top: 50px;
     right: 50px;
-    border: 1px solid white;
     padding: 5px;
-    border-radius: 15%;
-    box-shadow: 0px 0px 3px 1px white;
     background-color: black;
     cursor: pointer;
 }
@@ -263,6 +270,7 @@ p{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -1px;
 }
 
 .generalInfo{
@@ -293,12 +301,11 @@ p{
 }
 
 .questionMarkInfo{
-    position: absolute;
-    bottom: 47%;
+    position: sticky;
     border: 1px solid white;
     border-radius: 25px;
     padding: 10px;
-    margin-top: 8px;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
