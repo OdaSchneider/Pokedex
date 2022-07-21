@@ -105,7 +105,7 @@ function setPokeInfoType(i) {
     let types = currentPokemon['types'];
     for (let j = 0; j < types.length; j++) {
         let type = types[j]['type']['name'];
-        document.getElementById(`pokeInfoTypes${i}`).innerHTML += ` <span id="pokeInfoType${i}${j}">${type}</span> `
+        document.getElementById(`pokeInfoTypes${i}`).innerHTML += ` <button onclick="showGroup(${i}${j})" id="pokeInfoType${i}${j}">${type}</button> `
         setColorInfoType(i, j, type);
     }
 }
@@ -119,6 +119,13 @@ function setColorInfoType(i, j, type) {
 function setColorPokeInfoBg(i) {
     let color = currentPokemon['types'][0]['type']['name'];
     document.getElementById(`pokeInfoTop${i}`).classList.add(`backgroundGradient_${color}`);
+}
+
+
+function showGroup(i){
+    let selectedGroup = document.getElementById(`pokeInfoType${i}`).innerText;
+    closeFilter();
+    filterGroups(selectedGroup);
 }
 
 
@@ -178,15 +185,15 @@ function displayFilter() {
 }
 
 function initFilter(i) {
-    filter = [];
-    document.getElementById('showMoreButton').classList.add('d-none');
+    let selectedGroup = allTypes[i];
     closeFilter();
-    filterGroups(i);
+    filterGroups(selectedGroup);
 }
 
-function filterGroups(i) {
-    let selectedGroup = allTypes[i];
-
+function filterGroups(selectedGroup) {
+    filter = [];
+    document.getElementById('showMoreButton').classList.add('d-none');
+    
     for (let j = 0; j < allPokemon.length; j++) {
         currentPokemon = allPokemon[j];
         let types = currentPokemon['types'];
@@ -217,10 +224,13 @@ function closeFilter() {
     document.body.style.overflow = 'auto';
     document.getElementById('pokeInfo_bg').classList.add('d-none');
     document.getElementById('groupFilter').classList.add('d-none');
+    document.getElementById('pokeInfo').classList.add('d-none');
+    window.scrollTo(0, 0);
 }
 
 
 function showSearchbar() {
+    document.getElementById('input').style.width = '200px';
     document.getElementById('input').style.transform = 'scaleX(1)';
     document.getElementById('searchButton').src = "./img/icon/x-mark.ico"
     document.getElementById('searchButton').setAttribute('onclick', `javascript: hideSearchbar()`);
@@ -229,6 +239,7 @@ function showSearchbar() {
 
 function hideSearchbar() {
     document.getElementById('input').value = '';
+    document.getElementById('input').style.width = '0px';
     document.getElementById('input').style.transform = 'scaleX(0.0)';
     document.getElementById('searchButton').src = "./img/icon/search.ico"
     document.getElementById('searchButton').setAttribute('onclick', `javascript: showSearchbar()`);
@@ -257,4 +268,36 @@ function search() {
     } else {
         loadPokemon();
     }
+}
+
+
+function showGeneralInfo(){
+    document.getElementById('generalInfo').style.display = 'flex';
+    document.getElementById('generalInfoButton').style.backgroundColor = 'lightgrey';
+    document.getElementById('generalInfoButton').style.color = 'black';
+    document.getElementById('generalInfoButton').setAttribute('onclick', `javascript: closeGeneralInfo()`);
+    closeInfoDetails();
+}
+
+function closeGeneralInfo(){
+    document.getElementById('generalInfo').style.display = 'none';
+    document.getElementById('generalInfoButton').style.backgroundColor = 'unset';
+    document.getElementById('generalInfoButton').style.color = 'white';
+    document.getElementById('generalInfoButton').setAttribute('onclick', `javascript: showGeneralInfo()`);
+}
+
+function showInfoDetails(){
+    document.getElementById('infoDetails').style.display = 'flex';
+    document.getElementById('infoDetailsButton').style.backgroundColor = 'lightgrey';
+    document.getElementById('infoDetailsButton').style.color = 'black';
+    document.getElementById('infoDetailsButton').setAttribute('onclick', `javascript: closeInfoDetails()`);
+    closeGeneralInfo();
+}
+
+
+function closeInfoDetails(){
+    document.getElementById('infoDetails').style.display = 'none';
+    document.getElementById('infoDetailsButton').style.backgroundColor = 'unset';
+    document.getElementById('infoDetailsButton').style.color = 'white';
+    document.getElementById('infoDetailsButton').setAttribute('onclick', `javascript: showInfoDetails()`);
 }

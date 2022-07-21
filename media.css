@@ -1,0 +1,257 @@
+@media(max-width: 950px) {
+
+    .groupFilter {
+        height: 70%;
+    }
+}
+
+@media(max-width: 900px) {
+
+    #infoTitle {
+        max-width: 80px;
+    }
+}
+
+@media(max-width: 800px) {
+
+    .groupFilter {
+        height: 80%;
+    }
+
+    #groups {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+@media(max-width: 780px) {
+
+    .pokeInfoTop img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .infoStats {
+        font-size: 16px;
+    }
+}
+
+
+@media(max-width: 768px) {
+
+    .responsiveButton {
+        cursor: pointer;
+        margin-top: 14px;
+        width: 50%;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .responsiveButton button {
+        margin: 12px;
+        color: white;
+        background-color: unset;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 16px;
+        padding: 8px;
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+
+    .responsiveButton button:hover {
+        background-color: lightgrey;
+        color: black;
+    }
+
+    .generalInfo {
+        display: none;
+        flex-direction: column;
+        width: 70%;
+        position: absolute;
+        top: -315px;
+        background-color: rgba(0,0,0, 0.9);
+        border: 2px solid rgb(185, 0, 0);
+    }
+
+    .infoDetails{
+        display: none;
+        width: 70%;
+        position: absolute;
+        top: -360px;
+        background-color: rgba(0,0,0, 0.9);
+        border: 2px solid rgb(185, 0, 0);
+    }
+
+    #infoTitle{
+        text-align: center;
+    }
+
+    .infoStats{
+        flex-direction: column;
+    }
+
+    .pokeInfoTop {
+        flex-direction: column-reverse;
+    }
+
+    .pokeInfoTop div {
+        margin: unset;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .pokeInfoTypes button {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 700px){
+
+    .groupFilter{
+        justify-content: center;
+    }
+
+    #groups button {
+        width: 90px;
+        height: 40px;
+        margin: 12px;
+    }
+}
+
+@media(max-width: 620px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .header a {
+        margin-left: unset;
+    }
+}
+
+@media(max-width: 555px) {
+    #pokedex {
+        justify-content: center;
+    }
+
+    #groups {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .baseStat{
+        width: 200px;
+    }
+}
+
+@media(max-width: 470px){
+    .infoStats{
+        flex-direction: row;
+    }
+
+    .stats{
+        width: 90%;
+    }
+
+    #infoTitle{
+        text-align: start;
+    }
+
+    .processbar{
+        border: unset;
+    }
+
+    .processbar span{
+        font-size: 12px;
+    }
+
+    .processbarValue{
+        background-color: unset;
+        animation: none;
+    }
+
+    .baseStat{
+        width: 24px;
+    }
+}
+
+@media(max-width: 430px) {
+    body {
+        font-size: 12px;
+    }
+
+    #searchButton {
+        margin-right: 16px;
+    }
+
+    #filterButton {
+        margin-right: 24px;
+    }
+
+    .responsiveButton button {
+        font-size: 12px;
+    }
+
+    .pokeInfoTop img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .pokeInfo {
+        flex-direction: column;
+    }
+
+    .slideButton {
+        margin: 34px;
+        background-color: unset;
+        border: none;
+    }
+
+    .slideButton img {
+        margin: 24px;
+        width: 24px;
+    }
+
+    .infoCloseButton {
+        width: 32px;
+        height: 32px;
+    }
+
+    .infoDetails{
+        top: -300px;
+    }
+
+    .generalInfo{
+        top: -260px;
+    }
+}
+
+@media(max-width: 375px) {
+    .search input {
+        max-width: 120px;
+    }
+
+    .infoCloseButton {
+        width: 24px;
+        height: 24px;
+    }
+
+    #groups button {
+        width: 90px;
+        height: 30px;
+        margin: 12px;
+    }
+}
+
+@media(max-width: 300px) {
+    #pokedex {
+        margin: 120px 16px 32px 16px;
+    }
+
+    .slideButton {
+        margin: 24px;
+    }
+}

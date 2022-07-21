@@ -28,7 +28,13 @@ function showPokeInfo(i){
             </div>
 
             <div class="pokeInfoDetails_bg">
-                <div class="generalInfo">
+
+                <div id="responsiveButton" class="responsiveButton d-none">
+                    <button id="generalInfoButton" onclick="showGeneralInfo()">Base Info</button>
+                    <button id="infoDetailsButton" onclick="showInfoDetails()">Base Stats</button>
+                </div>
+
+                <div id="generalInfo" class="generalInfo">
                         <div>
                             <p>Weight</p><br>
                             <p>${currentPokemon['weight']/10} kg</p>
@@ -48,7 +54,7 @@ function showPokeInfo(i){
                     <p>Base experience gained for defeating this Pokémon</p>
                 </div>
 
-                <div class="infoDetails">
+                <div id="infoDetails" class="infoDetails">
                     <h1>Base Stats</h1>
                     <div id="stats${i}" class="stats"></div>
                 </div>
@@ -62,10 +68,15 @@ function showPokeInfo(i){
 function showStats(i, j, info){
     return`
     <div class="infoStats">
-        <div>${info['stat']['name']}</div>
-        <div class="baseStat">${info['base_stat']}
+        <div id="infoTitle">
+            ${info['stat']['name']}
+        </div>
+        
+        <div class="baseStat">
             <div class="processbar">
-                <div id="processbarValue${i}${j}" class="processbarValue"></div>
+                <div id="processbarValue${i}${j}" class="processbarValue">
+                    <span>${info['base_stat']}</span>
+                </div>
             </div>
         </div>
     </div>
