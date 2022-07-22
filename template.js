@@ -1,8 +1,9 @@
 function showPokecard(i){
+    let url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png`;
     return `
     <div onclick="openPokeInfoBg(${i})" id="pokeCard${i}" class="pokeCard filter">
 
-        <img class="pokeImg" alt="Image not found" loading="lazy" src= ${currentPokemon['sprites']['other']['official-artwork']['front_default']}>
+        <img id="pokeCardImg" class="pokeImg" alt="Image not found" loading="lazy" src= ${url}>;
         
         <div id="pokeCardInfo">
             <p>#<span id="pokeId${i}">${currentPokemon['id']}</span></p>
@@ -14,6 +15,7 @@ function showPokecard(i){
 
 
 function showPokeInfo(i){
+    let url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png`;
     return `
         <button onclick="slideDown(${i})" id="slideDown" class="slideButton"><img src="./img/icon/arrow-back.ico"></button>
 
@@ -24,7 +26,7 @@ function showPokeInfo(i){
                     <h1>${currentPokemon['name']}</h1>
                     <div id="pokeInfoTypes${i}" class="pokeInfoTypes"></div>
                 </div>
-                <img class="pokeInfoImg" alt="Image not found" loading="lazy" src= ${currentPokemon['sprites']['other']['official-artwork']['front_default']}>
+                <img id="pokeInfoImg" class="pokeInfoImg" alt="Image not found" loading="lazy" src= ${url}>
             </div>
 
             <div class="pokeInfoDetails_bg">
