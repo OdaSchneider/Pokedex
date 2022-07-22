@@ -1,8 +1,8 @@
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     margin: 0;
     min-height: 100vh;
     font-family: 'Josefin Sans', sans-serif;
@@ -12,24 +12,24 @@ body{
     transition: all 255ms ease-in-out;
 }
 
-h1{
+h1 {
     padding-top: 10px;
     font-size: 20px;
 }
 
-p{
+p {
     margin: unset;
 }
 
-.d-none{
+.d-none {
     display: none !important;
 }
 
-.scaleX{
+.scaleX {
     transform: scaleX(0.0);
 }
 
-.header{
+.header {
     position: fixed;
     left: 0;
     right: 0;
@@ -42,7 +42,7 @@ p{
     z-index: 99;
 }
 
-.header a{
+.header a {
     text-decoration: none;
     color: white;
     display: flex;
@@ -50,19 +50,19 @@ p{
     margin-left: 48px;
 }
 
-.header a img{
+.header a img {
     width: 40px;
     height: 40px;
     object-fit: contain;
     margin-right: 8px;
 }
 
-.search{
+.search {
     display: flex;
     align-items: center;
 }
 
-.search input{
+.search input {
     outline: none;
     border: none;
     border-radius: 100px;
@@ -72,13 +72,13 @@ p{
     transition: all 300ms ease-in-out;
 }
 
-#searchButton{
+#searchButton {
     margin-right: 64px;
     margin-left: 8px;
     cursor: pointer;
 }
 
-#filterButton{
+#filterButton {
     width: 42px;
     height: 42px;
     object-fit: contain;
@@ -86,7 +86,7 @@ p{
     cursor: pointer;
 }
 
-.groupFilter{
+.groupFilter {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,12 +94,12 @@ p{
     height: 60%;
 }
 
-.groupFilter h1{
+.groupFilter h1 {
     word-wrap: break-word;
     text-align: center;
 }
 
-#groups{
+#groups {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 25px;
     display: flex;
@@ -110,7 +110,7 @@ p{
     margin-right: 100px;
 }
 
-#groups button{
+#groups button {
     width: 100px;
     height: 50px;
     color: rgb(248, 248, 248);
@@ -122,18 +122,18 @@ p{
     border-radius: 15px;
 }
 
-#groups button:hover{
+#groups button:hover {
     animation: zoom-in-zoom-out 0.5 ease-in-out;
 }
 
-#pokedex{
+#pokedex {
     margin: 120px 64px 32px 64px;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.pokeCard{
+.pokeCard {
     display: flex;
     flex-direction: column;
     margin: 16px 16px;
@@ -142,11 +142,11 @@ p{
     border-radius: 5%;
 }
 
-.pokeCard:hover{
+.pokeCard:hover {
     animation: bounce 1s;
 }
 
-.pokeImg{
+.pokeImg {
     width: 150px;
     height: 150px;
     padding: 16px;
@@ -155,7 +155,7 @@ p{
     border-top-right-radius: 5%;
 }
 
-#pokeCardInfo{
+#pokeCardInfo {
     padding: 16px;
     border-radius: 6%;
     margin-top: -12px;
@@ -168,19 +168,19 @@ p{
     justify-content: space-between;
 }
 
-.pokeCardTypes span{
+.pokeCardTypes span {
     border: 1px solid white;
     padding: 4px;
 }
 
-.showMoreButton{
+.showMoreButton {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 32px;
 }
 
-.showMoreButton button{
+.showMoreButton button {
     width: 70px;
     height: 70px;
     padding: 8px;
@@ -195,7 +195,7 @@ p{
     cursor: pointer;
 }
 
-.pokeInfo_bg{
+.pokeInfo_bg {
 
     background-color: rgb(0, 0, 0);
     z-index: 999;
@@ -209,7 +209,7 @@ p{
     justify-content: space-between;
 }
 
-.infoCloseButton{
+.infoCloseButton {
     width: 42px;
     height: 42px;
     position: fixed;
@@ -220,7 +220,7 @@ p{
     cursor: pointer;
 }
 
-.slideButton{
+.slideButton {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.3);
     display: flex;
@@ -232,18 +232,18 @@ p{
     margin: 16px;
 }
 
-.pokeInfo{
+.pokeInfo {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.pokeInfoCard{
+.pokeInfoCard {
     width: 70%;
 }
 
-.pokeInfoTop{
+.pokeInfoTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -252,23 +252,23 @@ p{
     border-top-right-radius: 25px;
 }
 
-.pokeInfoTop div{
+.pokeInfoTop div {
     margin-left: 32px;
 }
 
-.pokeInfoTop img{
+.pokeInfoTop img {
     width: 180px;
     height: 180px;
     animation: zoom-in 200ms ease-in-out;
 }
 
-.pokeInfoTypes{
+.pokeInfoTypes {
     display: flex;
     margin-top: 16px;
     margin-left: unset !important;
 }
 
-.pokeInfoTypes button{
+.pokeInfoTypes button {
     cursor: pointer;
     border: 1px solid white;
     color: white;
@@ -278,7 +278,7 @@ p{
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.pokeInfoDetails_bg{
+.pokeInfoDetails_bg {
     background-color: rgb(36, 36, 36);
     padding: 16px;
     border-bottom-left-radius: 25px;
@@ -290,7 +290,7 @@ p{
     position: relative;
 }
 
-.generalInfo{
+.generalInfo {
     display: flex;
     justify-content: space-between;
     border: 1px solid white;
@@ -298,7 +298,7 @@ p{
     width: fit-content;
 }
 
-.generalInfo div{
+.generalInfo div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -306,18 +306,18 @@ p{
     margin: 16px;
 }
 
-.questionmark{
+.questionmark {
     width: 12px;
-    height: 12px; 
+    height: 12px;
     cursor: pointer;
     margin-left: 8px;
 }
 
-.questionmark:hover{
+.questionmark:hover {
     animation: zoom-in-zoom-out 1s ease-in-out;
 }
 
-.questionMarkInfo{
+.questionMarkInfo {
     position: sticky;
     border: 1px solid white;
     border-radius: 25px;
@@ -330,14 +330,14 @@ p{
     text-align: center;
 }
 
-.questionMarkInfo img{
+.questionMarkInfo img {
     width: 12px;
     height: 12px;
     margin-top: 5px;
     cursor: pointer;
 }
 
-.infoDetails{
+.infoDetails {
     margin-top: 32px;
     margin-bottom: 32px;
     display: flex;
@@ -349,16 +349,16 @@ p{
     width: 100%;
 }
 
-.infoDetails h1{
+.infoDetails h1 {
     margin-top: 16px;
     margin-bottom: 16px;
 }
 
-.stats{
+.stats {
     width: 70%;
 }
 
-.infoStats{
+.infoStats {
     display: flex;
     font-size: 16px;
     align-items: center;
@@ -367,19 +367,19 @@ p{
     margin-bottom: 16px;
 }
 
-#infoTitle{
+#infoTitle {
     word-wrap: break-word;
     margin-right: 10px;
 }
 
-.baseStat{
+.baseStat {
     display: flex;
     margin: 0px 8px;
     width: 250px;
     justify-content: end;
 }
 
-.processbar{
+.processbar {
     height: 10px;
     width: 100%;
     border: 1px solid white;
@@ -387,12 +387,12 @@ p{
     margin-left: 16px;
 }
 
-.processbar span{
+.processbar span {
     font-size: 10px;
     padding-left: 16px;
 }
 
-.processbarValue{
+.processbarValue {
     height: 10px;
     background-color: rgb(136, 0, 63);
     border-radius: 100px;
@@ -402,44 +402,94 @@ p{
     align-items: center;
 }
 
-@keyframes bounce {
-    0%, 100% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
+#loaderImg{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 46.5%;
+    top: 44%;
+    z-index: 1;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
     }
-  
+    30%{
+        -webkit-transform: rotate(-45deg);
+    }
+    60%{
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(-30deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
     50% {
-      -webkit-transform: translateY(-20px);
-      transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
     }
 }
 
 @keyframes zoom-in-zoom-out {
     0% {
-      transform: scale(1, 1);
+        transform: scale(1, 1);
     }
+
     50% {
-      transform: scale(1.3, 1.3);
+        transform: scale(1.3, 1.3);
     }
+
     100% {
-      transform: scale(1, 1);
+        transform: scale(1, 1);
     }
 }
 
 @keyframes zoom-in {
     0% {
-      transform: scale(0);
+        transform: scale(0);
     }
+
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
 }
 
 @keyframes scale-up {
     0% {
-      transform: scaleX(0);
+        transform: scaleX(0);
     }
+
     100% {
-      transform: scaleX(1);
+        transform: scaleX(1);
     }
 }

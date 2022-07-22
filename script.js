@@ -5,15 +5,32 @@ let allTypes = ['fire', 'grass', 'water', 'poison', 'flying', 'bug', 'normal', '
 let allPokemon = [];
 let filter = [];
 
+function init(){
+    document.getElementById('showMoreButton').classList.add('d-none');
+    loadAll();
+    loadMainPage();
+}
+
+
+function loadMainPage(){
+    setTimeout(showMainPage, 3000);
+}
+
+
+function showMainPage(){
+    document.getElementById("loaderImg").style.display = "none";
+    document.getElementById("pokedex").style.display = "flex";
+    document.getElementById('showMoreButton').classList.remove('d-none');
+    loadPokemon();
+}
+
 
 async function loadPokemon() {
     for (let i = loadingrangeStart; i < loadingrangeEnd; i++) {
-        let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        let response = await fetch(url);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         currentPokemon = await response.json();
         showPokemon(i);
     }
-    loadAll();
 }
 
 
@@ -86,8 +103,7 @@ function openPokeInfoBg(i) {
 
 
 async function loadPokeInfo(i) {
-    let url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-    let response = await fetch(url);
+    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     currentPokemon = await response.json();
     document.getElementById('pokeInfo').innerHTML = showPokeInfo(i);
     loadInfoDetails(i);
@@ -282,7 +298,7 @@ function search() {
 function loadSearchResult(search){
     currentPokemon = [];
     window.scrollTo(0, 0);
-    
+
     for (j = 0; j < allPokemon.length; j++) {
         let filterName = allPokemon[j]['name'];
 
