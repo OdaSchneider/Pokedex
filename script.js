@@ -30,8 +30,7 @@ async function loadAll() {
 function showPokemon(i) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML += showPokecard(i);
-    getType(i);
-    setColorBox(i);
+    designCard(i);
 }
 
 
@@ -41,6 +40,11 @@ function loadMore() {
     loadPokemon();
 }
 
+function designCard(i){
+    getType(i);
+    setColorBox(i);
+    checkNameLenght(i);
+}
 
 function getType(i) {
     let types = currentPokemon['types'];
@@ -60,6 +64,16 @@ function setColorType(i, j, type) {
 function setColorBox(i) {
     let color = currentPokemon['types'][0]['type']['name'];
     document.getElementById(`pokeCard${i}`).classList.add(`border_${color}`);
+}
+
+
+function checkNameLenght(i){
+    let pokeNameLenght = document.getElementById(`currentPokemonName${i}`).innerText;
+    if(pokeNameLenght.length >= 14){
+        document.getElementById(`currentPokemonName${i}`).style.fontSize = '14px';
+    }    if(pokeNameLenght.length >= 19){
+        document.getElementById(`currentPokemonName${i}`).style.fontSize = '12px';
+    }
 }
 
 
@@ -217,8 +231,7 @@ function showFilter() {
         currentPokemon = filter[j];
         let i = currentPokemon['id'];
         pokedex.innerHTML += showPokecard(i);
-        getType(i);
-        setColorBox(i);
+        designCard(i);
     }
 }
 
@@ -251,14 +264,16 @@ function hideSearchbar() {
 
 
 function search() {
-    document.getElementById('pokedex').innerHTML = '';
+    document.getElementById('pokedex').innerHTML = 'type at least two characters';
     document.getElementById('showMoreButton').classList.add('d-none');
     let input = document.getElementById('input');
     let search = input.value.toLocaleLowerCase();
 
-    if (search) {
+    if (search.length >= 2) {
+        document.getElementById('pokedex').innerHTML = '';
         loadSearchResult(search);
-    } else {
+    } if(search.length == 0) {
+        document.getElementById('pokedex').innerHTML = '';
         loadPokemon();
     }
 }
@@ -266,14 +281,16 @@ function search() {
 
 function loadSearchResult(search){
     currentPokemon = [];
+    window.scrollTo(0, 0);
+    
     for (j = 0; j < allPokemon.length; j++) {
         let filterName = allPokemon[j]['name'];
+
         if (filterName.toLowerCase().includes(search)) {
             currentPokemon = allPokemon[j];
             let i = currentPokemon['id'];
             pokedex.innerHTML += showPokecard(i);
-            getType(i);
-            setColorBox(i);
+            designCard(i);
         }
     }
 }

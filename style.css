@@ -162,6 +162,10 @@ p{
     background-color: rgb(92, 92, 92);
     border: 1px solid white;
     word-wrap: break-word;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .pokeCardTypes span{

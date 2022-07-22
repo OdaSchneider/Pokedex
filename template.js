@@ -6,7 +6,7 @@ function showPokecard(i){
         
         <div id="pokeCardInfo">
             <p>#<span id="pokeId${i}">${currentPokemon['id']}</span></p>
-            <h2>${currentPokemon['name']}</h2>
+            <h2 id="currentPokemonName${i}">${currentPokemon['name']}</h2>
             <div id="pokeCardTypes${i}" class="pokeCardTypes"></div>
         </div>
     </div>`
