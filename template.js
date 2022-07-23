@@ -1,5 +1,6 @@
 function showPokecard(i){
     let url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png`;
+    
     return `
     <div onclick="openPokeInfoBg(${i})" id="pokeCard${i}" class="pokeCard filter">
 
@@ -16,6 +17,7 @@ function showPokecard(i){
 
 function showPokeInfo(i){
     let url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png`;
+   
     return `
         <button onclick="slideDown(${i})" id="slideDown" class="slideButton"><img src="./img/icon/arrow-back.ico"></button>
 

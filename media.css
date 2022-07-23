@@ -127,7 +127,7 @@
         padding: 8px;
     }
 
-    .header a {
+    .header div {
         margin-left: unset;
     }
 }
@@ -175,6 +175,10 @@
 
     .baseStat{
         width: 24px;
+    }
+
+    #loaderImg{
+        left: 41.5%;
     }
 }
 
@@ -244,6 +248,10 @@
         height: 30px;
         margin: 12px;
     }
+
+    #loaderImg{
+        left: 39.5%;
+    }
 }
 
 @media(max-width: 300px) {
@@ -253,5 +261,9 @@
 
     .slideButton {
         margin: 24px;
+    }
+
+    #loaderImg{
+        left: 34.5%;
     }
 }

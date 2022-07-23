@@ -28,6 +28,7 @@ function homescreen(){
     loadingrangeStart = 1;
     loadingrangeEnd = 21;
     window.scrollTo(0, 0);
+    document.getElementById('showMoreButton').classList.remove('d-none');
     document.getElementById('pokedex').innerHTML='';
     loadPokemon();
 }
@@ -143,7 +144,7 @@ function setPokeInfoType(i) {
     let types = currentPokemon['types'];
     for (let j = 0; j < types.length; j++) {
         let type = types[j]['type']['name'];
-        document.getElementById(`pokeInfoTypes${i}`).innerHTML += ` <button onclick="showGroup(${i}${j})" id="pokeInfoType${i}${j}">${type}</button> `
+        document.getElementById(`pokeInfoTypes${i}`).innerHTML += ` <button onclick="initFilterFromInfo(${i}${j})" id="pokeInfoType${i}${j}">${type}</button> `
         setColorInfoType(i, j, type);
     }
 }
@@ -157,13 +158,6 @@ function setColorInfoType(i, j, type) {
 function setColorPokeInfoBg(i) {
     let color = currentPokemon['types'][0]['type']['name'];
     document.getElementById(`pokeInfoTop${i}`).classList.add(`backgroundGradient_${color}`);
-}
-
-
-function showGroup(i) {
-    let selectedGroup = document.getElementById(`pokeInfoType${i}`).innerText;
-    closeFilter();
-    filterGroups(selectedGroup);
 }
 
 
@@ -231,8 +225,25 @@ function initFilter(i) {;
     loadFilterPage(i);
 }
 
+
+function initFilterFromInfo(i) {;
+    document.getElementById("loaderImg").style.display = "block";
+    document.getElementById("pokedex").style.display = "none";
+    document.getElementById('showMoreButton').classList.add('d-none');
+    closeFilter();
+    loadFilterPageFromInfo(i);
+}
+
+
 function loadFilterPage(i){
     let selectedGroup = allTypes[i];
+    filterGroups(selectedGroup);
+    setTimeout(showFilterPage, 5000);
+}
+
+
+function loadFilterPageFromInfo(i){
+    let selectedGroup = document.getElementById(`pokeInfoType${i}`).innerText;
     filterGroups(selectedGroup);
     setTimeout(showFilterPage, 5000);
 }
