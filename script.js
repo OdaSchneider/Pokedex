@@ -312,7 +312,7 @@ function hideSearchbar() {
 
 
 function search() {
-    document.getElementById('pokedex').innerHTML = 'type at least two characters';
+    document.getElementById('pokedex').innerHTML = '<p id ="searchdialog">type at least two characters</p>';
     document.getElementById('showMoreButton').classList.add('d-none');
     let input = document.getElementById('input');
     let search = input.value.toLocaleLowerCase();

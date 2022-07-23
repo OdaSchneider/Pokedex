@@ -130,6 +130,10 @@
     .header div {
         margin-left: unset;
     }
+
+    #searchdialog{
+        left: 28%;
+    }
 }
 
 @media(max-width: 555px) {
@@ -179,6 +183,10 @@
 
     #loaderImg{
         left: 41.5%;
+    }
+
+    #searchdialog{
+        left: 22%;
     }
 }
 
@@ -252,6 +260,10 @@
     #loaderImg{
         left: 39.5%;
     }
+
+    #searchdialog{
+        left: 16%;
+    }
 }
 
 @media(max-width: 300px) {
@@ -265,5 +277,9 @@
 
     #loaderImg{
         left: 34.5%;
+    }
+
+    #searchdialog{
+        left: 6%;
     }
 }
