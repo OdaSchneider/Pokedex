@@ -19,7 +19,7 @@ function showPokeInfo(i){
     let url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png`;
    
     return `
-        <button onclick="slideDown(${i})" id="slideDown" class="slideButton"><img src="./img/icon/arrow-back.ico"></button>
+        <button id="slideDownButton" onclick="slideDown(${i})" class="slideButton"><img src="./img/icon/arrow-back.ico"></button>
 
         <div class="pokeInfoCard">
             <div id="pokeInfoTop${i}" class="pokeInfoTop">
@@ -65,7 +65,7 @@ function showPokeInfo(i){
             </div>
         </div>
 
-        <button onclick="slideUp(${i})" class="slideButton"><img src="./img/icon/arrow-forward.ico"></button>`
+        <button id="slideUpButton" onclick="slideUp(${i})" class="slideButton"><img src="./img/icon/arrow-forward.ico"></button>`
 }
 
 

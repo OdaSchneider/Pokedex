@@ -83,14 +83,15 @@ p {
 }
 
 #searchButton {
+    width: 32px;
     margin-right: 64px;
     margin-left: 8px;
     cursor: pointer;
 }
 
 #filterButton {
-    width: 38px;
-    height: 38px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
     margin-right: 48px;
     cursor: pointer;
@@ -207,6 +208,12 @@ p {
     background-image: url(./img/pokeball.png);
     z-index: 1;
     cursor: pointer;
+    transition: all 125ms ease-in-out;
+}
+
+.showMoreButton button:hover{
+    transform: scale(1.2);
+    transition: all 125ms ease-in-out;
 }
 
 .pokeInfo_bg {
@@ -234,6 +241,10 @@ p {
     cursor: pointer;
 }
 
+.infoCloseButton:hover{
+    filter: brightness(0.8);
+}
+
 .slideButton {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.3);
@@ -244,6 +255,10 @@ p {
     width: 48px;
     height: 48px;
     margin: 16px;
+}
+
+.slideButton:hover{
+    filter: brightness(0.8);
 }
 
 .pokeInfo {

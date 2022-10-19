@@ -5,31 +5,31 @@ let allTypes = ['fire', 'grass', 'water', 'poison', 'flying', 'bug', 'normal', '
 let allPokemon = [];
 let filter = [];
 
-function init(){
+function init() {
     document.getElementById('showMoreButton').classList.add('d-none');
     loadAll();
     loadMainPage();
 }
 
 
-function loadMainPage(){
+function loadMainPage() {
     setTimeout(showMainPage, 5000);
 }
 
 
-function showMainPage(){
+function showMainPage() {
     document.getElementById("loaderImg").style.display = "none";
     document.getElementById("pokedex").style.display = "flex";
     document.getElementById('showMoreButton').classList.remove('d-none');
     loadPokemon();
 }
 
-function homescreen(){
+function homescreen() {
     loadingrangeStart = 1;
     loadingrangeEnd = 21;
     window.scrollTo(0, 0);
     document.getElementById('showMoreButton').classList.remove('d-none');
-    document.getElementById('pokedex').innerHTML='';
+    document.getElementById('pokedex').innerHTML = '';
     loadPokemon();
 }
 
@@ -66,7 +66,7 @@ function loadMore() {
     loadPokemon();
 }
 
-function designCard(i){
+function designCard(i) {
     getType(i);
     setColorBox(i);
     checkNameLenght(i);
@@ -93,11 +93,11 @@ function setColorBox(i) {
 }
 
 
-function checkNameLenght(i){
+function checkNameLenght(i) {
     let pokeNameLenght = document.getElementById(`currentPokemonName${i}`).innerText;
-    if(pokeNameLenght.length >= 14){
+    if (pokeNameLenght.length >= 14) {
         document.getElementById(`currentPokemonName${i}`).style.fontSize = '14px';
-    }    if(pokeNameLenght.length >= 19){
+    } if (pokeNameLenght.length >= 19) {
         document.getElementById(`currentPokemonName${i}`).style.fontSize = '12px';
     }
 }
@@ -163,10 +163,10 @@ function setColorPokeInfoBg(i) {
 
 function checkSlideNumber(i) {
     if (i == 1) {
-        document.getElementById(`slideDown`).disabled = true;
-        document.getElementById(`slideDown`).style.opacity = 0.3;
+        document.getElementById(`slideDownButton`).disabled = true;
+        document.getElementById(`slideDownButton`).style.opacity = 0.3;
     } else {
-        document.getElementById(`slideDown`).disabled = false;
+        document.getElementById(`slideDownButton`).disabled = false;
     }
 }
 
@@ -217,7 +217,7 @@ function displayFilter() {
 }
 
 
-function initFilter(i) {;
+function initFilter(i) {
     document.getElementById("loaderImg").style.display = "block";
     document.getElementById("pokedex").style.display = "none";
     document.getElementById('showMoreButton').classList.add('d-none');
@@ -226,7 +226,8 @@ function initFilter(i) {;
 }
 
 
-function initFilterFromInfo(i) {;
+function initFilterFromInfo(i) {
+    ;
     document.getElementById("loaderImg").style.display = "block";
     document.getElementById("pokedex").style.display = "none";
     document.getElementById('showMoreButton').classList.add('d-none');
@@ -235,21 +236,21 @@ function initFilterFromInfo(i) {;
 }
 
 
-function loadFilterPage(i){
+function loadFilterPage(i) {
     let selectedGroup = allTypes[i];
     filterGroups(selectedGroup);
     setTimeout(showFilterPage, 5000);
 }
 
 
-function loadFilterPageFromInfo(i){
+function loadFilterPageFromInfo(i) {
     let selectedGroup = document.getElementById(`pokeInfoType${i}`).innerText;
     filterGroups(selectedGroup);
     setTimeout(showFilterPage, 5000);
 }
 
 
-function showFilterPage(){
+function showFilterPage() {
     document.getElementById("loaderImg").style.display = "none";
     document.getElementById("pokedex").style.display = "flex";
 }
@@ -320,14 +321,14 @@ function search() {
     if (search.length >= 2) {
         document.getElementById('pokedex').innerHTML = '';
         loadSearchResult(search);
-    } if(search.length == 0) {
+    } if (search.length == 0) {
         document.getElementById('pokedex').innerHTML = '';
         homescreen();
     }
 }
 
 
-function loadSearchResult(search){
+function loadSearchResult(search) {
     currentPokemon = [];
     window.scrollTo(0, 0);
 
@@ -373,3 +374,20 @@ function closeInfoDetails() {
     document.getElementById('infoDetailsButton').style.color = 'white';
     document.getElementById('infoDetailsButton').setAttribute('onclick', `javascript: showInfoDetails()`);
 }
+
+function doNotClose(event) {
+    event.stopPropagation();
+}
+
+
+window.addEventListener("keydown", (event) => {
+    if (event.keyCode == 39) {
+        document.getElementById('slideUpButton').click();
+    }
+    if (event.keyCode == 37) {
+        document.getElementById('slideDownButton').click();
+    }
+    if(event.keyCode == 27){
+        document.getElementById('closeInfo').click();
+    }
+});

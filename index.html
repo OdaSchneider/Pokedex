@@ -25,7 +25,7 @@
         <div class="search">
             <input onkeyup="search()" id="input" class="scaleX" placeholder="Pokemon suchen">
             <img onclick="showSearchbar()" id="searchButton" src="./img/icon/search.ico">
-            <img onclick="displayFilter()" id="filterButton" src="./img/icon/filter.png">
+            <img onclick="displayFilter()" id="filterButton" src="./img/icon/filter.ico">
         </div>
     </div>
 
@@ -36,9 +36,9 @@
         <button onclick="loadMore()">MORE</button>
     </div>
 
-    <div id="pokeInfo_bg" class="pokeInfo_bg d-none">
-        <img onclick="closePokeInfo()" class="infoCloseButton" src="./img/icon/x-mark.ico">
-        <div id="pokeInfo" class="pokeInfo d-none"></div>
+    <div id="pokeInfo_bg" class="pokeInfo_bg d-none" onclick="closePokeInfo()">
+        <img id="closeInfo" onclick="closePokeInfo()" class="infoCloseButton" src="./img/icon/x-mark.ico">
+        <div id="pokeInfo" class="pokeInfo d-none" onclick="doNotClose(event)"></div>
         
         <div id="groupFilter" class="groupFilter d-none">
             <h1>Search Pokemon by Type</h1>
